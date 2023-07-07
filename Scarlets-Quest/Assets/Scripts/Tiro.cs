@@ -26,11 +26,21 @@ public class Tiro : MonoBehaviour
         {
             _rig.velocity = Vector2.left * speed;
         }
-        
+
+    }
+    
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy") ;
+        {
+            collision.GetComponent<Espinho>().Morte();
+            Destroy(gameObject);
+        }
     }
 
     public void Setup(bool isRight)
     {
         _isRight = isRight;
     }
+    
 }

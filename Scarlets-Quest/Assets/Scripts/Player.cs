@@ -100,6 +100,7 @@ public class Player : MonoBehaviour
             }
             
             yield return new WaitForSeconds(0.2f);
+            _isShoot = false;
             _anim.SetInteger("transition", 0);
         }
     }
