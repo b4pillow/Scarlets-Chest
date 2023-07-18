@@ -16,12 +16,13 @@ public class Player : MonoBehaviour
     private Animator _anim;
 
     private float movement;
-    private float lookDirection;
+    public float lookDirection;
     // Start is called before the first frame update
     void Start()
     {
         _rig = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        lookDirection = 1f;
     }
 
     // Update is called once per frame
@@ -79,7 +80,10 @@ public class Player : MonoBehaviour
 
     void BowFire()
     {
-        StartCoroutine("Shoot");
+        if (!_isShoot)
+        {
+            StartCoroutine("Shoot");
+        }
     }
 
     IEnumerator Shoot()
@@ -89,18 +93,7 @@ public class Player : MonoBehaviour
             _isShoot = true;
             _anim.SetInteger("transition", 3);
             GameObject tiro = Instantiate(shoot, shootexit.position, shootexit.rotation);
-            shoot.GetComponent<Tiro>().Setup(false);
-            if (lookDirection > 0)
-            {
-                shoot.GetComponent<Tiro>().Setup(true);
-            }
-
-            if (lookDirection < 0)
-            {
-                
-            }
-            
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.5f);
             _isShoot = false;
             _anim.SetInteger("transition", 0);
         }

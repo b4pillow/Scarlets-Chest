@@ -13,6 +13,8 @@ public class Tiro : MonoBehaviour
     void Start()
     {
         _rig = GetComponent<Rigidbody2D>();
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        _isRight = player.lookDirection > 0;
         Destroy(gameObject, 1f);
     }
 
