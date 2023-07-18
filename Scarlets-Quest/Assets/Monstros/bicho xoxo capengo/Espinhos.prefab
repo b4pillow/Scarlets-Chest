@@ -159,4 +159,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   walkTime: 2
-  vida_inimigo: 1
+  health: 5

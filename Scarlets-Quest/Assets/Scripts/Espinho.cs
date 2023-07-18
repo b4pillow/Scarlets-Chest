@@ -6,7 +6,7 @@ public class Espinho : MonoBehaviour
 {
     public float speed;
     public float walkTime;
-    
+    [SerializeField] int health;
     private float timer;
     private bool walkRight;
 
@@ -43,9 +43,14 @@ public class Espinho : MonoBehaviour
             
     }
 
-    public void Morte()
+    public void Morte(int dmg)
     {
-        Destroy(gameObject);
+        health -= dmg;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
          
 }

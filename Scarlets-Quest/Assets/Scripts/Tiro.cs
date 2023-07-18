@@ -6,6 +6,7 @@ public class Tiro : MonoBehaviour
 {
     private Rigidbody2D _rig;
     public float speed;
+    public int dmg = 2;
 
     public bool _isRight;
     // Start is called before the first frame update
@@ -31,9 +32,9 @@ public class Tiro : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy") ;
+        if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<Espinho>().Morte();
+            collision.GetComponent<Espinho>()?.Morte(dmg);
             Destroy(gameObject);
         }
     }
