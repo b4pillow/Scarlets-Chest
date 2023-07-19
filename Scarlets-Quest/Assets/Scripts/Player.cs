@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -14,7 +15,7 @@ public class Player : MonoBehaviour
     public Transform shootexit;
     private Rigidbody2D _rig;
     private Animator _anim;
-
+    public int health; 
     private float movement;
     public float lookDirection;
     // Start is called before the first frame update
@@ -105,6 +106,19 @@ public class Player : MonoBehaviour
         {
             _isJumping = false;
         }
+    }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        
+    }
+
+    public void Damage(int dmg)
+    {
+        health -= dmg;
+        if (health <= 0)
+        {
+         Destroy(gameObject);   
+        }
     }
 }
