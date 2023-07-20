@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public Transform shootexit;
     private Rigidbody2D _rig;
     private Animator _anim;
-    public int health; 
+    public int health = 3;
     private float movement;
     public float lookDirection;
     // Start is called before the first frame update
@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
         _rig = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         lookDirection = 1f;
+            
+        GameController.instance.UpdateLives(health);
     }
 
     // Update is called once per frame
@@ -116,6 +118,7 @@ public class Player : MonoBehaviour
     public void Damage(int dmg)
     {
         health -= dmg;
+        GameController.instance.UpdateLives(health);
         if (health <= 0)
         {
          Destroy(gameObject);   
