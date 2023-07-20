@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Tiro : MonoBehaviour
@@ -37,6 +38,11 @@ public class Tiro : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<Espinho>()?.Morte(dmg);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Wall") ;
+        {
             Destroy(gameObject);
         }
     }

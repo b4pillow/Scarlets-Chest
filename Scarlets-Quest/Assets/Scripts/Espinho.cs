@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class Espinho : MonoBehaviour
     [SerializeField] int health;
     private float timer;
     private bool walkRight;
+    public int damage = 1;
 
     private Rigidbody2D rig;
     // Start is called before the first frame update
@@ -52,5 +54,12 @@ public class Espinho : MonoBehaviour
             Destroy(gameObject);
         }
     }
-         
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player") ;
+        {
+            collision.gameObject.GetComponent<Player>().Damage(damage);
+        }
+    }
 }

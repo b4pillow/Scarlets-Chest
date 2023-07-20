@@ -42,7 +42,6 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        
         movement = Input.GetAxis("Horizontal");
         if (movement != 0)
         {
@@ -119,9 +118,21 @@ public class Player : MonoBehaviour
     {
         health -= dmg;
         GameController.instance.UpdateLives(health);
+        _anim.SetTrigger("hit");
+        
         if (health <= 0)
         {
          Destroy(gameObject);   
+        }
+
+        if (transform.rotation.y == 0) ;
+        {
+            transform.position += new Vector3(-0.5f, 0, 0);
+        }
+        
+        if (transform.rotation.y == 180) ;
+        {
+            transform.position += new Vector3(0.5f, 0, 0);
         }
     }
 }
