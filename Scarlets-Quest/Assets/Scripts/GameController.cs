@@ -8,6 +8,11 @@ public class GameController : MonoBehaviour
 {
     public Text healthText;
 
+    public int balasColeta;
+    //Quantidade de balas coletadas
+    public Text texto_BalaColeta;
+    //Exibe o texto com o número de coletas de balas.
+
     public static GameController instance;
     
     // Start is called before the first frame update
@@ -20,6 +25,12 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void UpdateScore(int value)
+    {
+        balasColeta += value;
+        texto_BalaColeta.text = balasColeta.ToString();
     }
 
     public void UpdateLives(int value)

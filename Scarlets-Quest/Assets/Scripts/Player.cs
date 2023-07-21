@@ -109,9 +109,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    public void IncreaseLife(int value)
     {
-        
+        health += value;
+        GameController.instance.UpdateLives(health);
     }
 
     public void Damage(int dmg)
@@ -122,17 +123,18 @@ public class Player : MonoBehaviour
         
         if (health <= 0)
         {
-         Destroy(gameObject);   
+         gameObject.SetActive(false);  
         }
 
-        if (transform.rotation.y == 0) ;
+        if (transform.rotation.y == 0)
         {
             transform.position += new Vector3(-0.5f, 0, 0);
         }
         
-        if (transform.rotation.y == 180) ;
+        if (transform.rotation.y == 180)
         {
             transform.position += new Vector3(0.5f, 0, 0);
         }
     }
+    
 }
