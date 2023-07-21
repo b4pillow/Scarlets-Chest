@@ -35,13 +35,14 @@ public class Tiro : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.name);
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<Espinho>()?.Morte(dmg);
             Destroy(gameObject);
+            Debug.Log("Destruido no enemy");
         }
-
-        if (collision.gameObject.tag == "Wall") ;
+        else if (collision.CompareTag("Wall"))
         {
             Destroy(gameObject);
         }

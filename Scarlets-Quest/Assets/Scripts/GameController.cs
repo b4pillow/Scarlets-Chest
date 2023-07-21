@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     private bool isPaused;
 
     public GameObject gameOverObj;
+    public AudioSource bulletSound;
     
 
     public static GameController instance;
@@ -71,5 +72,10 @@ public class GameController : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void PlayBulletSound()
+    {
+        bulletSound.Play();
     }
 }
