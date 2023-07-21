@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -18,6 +19,9 @@ public class Player : MonoBehaviour
     public int health = 3;
     private float movement;
     public float lookDirection;
+    
+    private AudioSource sound;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +30,8 @@ public class Player : MonoBehaviour
         lookDirection = 1f;
             
         GameController.instance.UpdateLives(health);
+
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -92,6 +98,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            sound.Play();
             _isShoot = true;
             _anim.SetInteger("transition", 3);
             GameObject tiro = Instantiate(shoot, shootexit.position, shootexit.rotation);
@@ -106,6 +113,11 @@ public class Player : MonoBehaviour
         if (coll.gameObject.layer == 6)
         {
             _isJumping = false;
+        }
+
+        if (coll.gameObject.layer == 8)
+        {
+           GameController.instance.GameOver();
         }
     }
 
@@ -123,7 +135,9 @@ public class Player : MonoBehaviour
         
         if (health <= 0)
         {
-         gameObject.SetActive(false);  
+            GameController.instance.GameOver();
+         gameObject.SetActive(false);
+         
         }
 
         if (transform.rotation.y == 0)
@@ -136,5 +150,5 @@ public class Player : MonoBehaviour
             transform.position += new Vector3(0.5f, 0, 0);
         }
     }
-    
+
 }
