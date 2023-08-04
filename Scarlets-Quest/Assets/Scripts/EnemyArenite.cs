@@ -6,6 +6,8 @@ public class EnemyArenite : MonoBehaviour
 {
     public float TimeToAttack;
     public GameObject fire2;
+    public Transform Firepoint;
+
     
     // Start is called before the first frame update
     void Start()
@@ -15,7 +17,7 @@ public class EnemyArenite : MonoBehaviour
 
     void Attack()
     {
-        Instantiate(fire2, transform.position + Vector3.left, Quaternion.identity);
+        Instantiate(fire2, Firepoint.position , Quaternion.identity);
 
     }
 }

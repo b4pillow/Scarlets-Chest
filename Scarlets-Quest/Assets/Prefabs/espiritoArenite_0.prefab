@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &906065699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 906065700}
+  m_Layer: 0
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &906065700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906065699}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.91, y: -0.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2020410370588761329}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2020410370588761330
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,9 +62,10 @@ Transform:
   m_GameObject: {fileID: 2020410370588761330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.88, y: -6.57, z: 0}
-  m_LocalScale: {x: 0.7157, y: 0.7157, z: 0.7157}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_LocalScale: {x: 0.66, y: 0.66, z: 0.66}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 906065700}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -143,14 +175,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020410370588761330}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -168,8 +200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46aa57873ef063a4dac1b7b355ebcd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToAttack: 0.8
+  TimeToAttack: 2
   fire2: {fileID: 6263289889510589362, guid: 68cc8ea30cd9b2b40b058ce7294290ed, type: 3}
+  Firepoint: {fileID: 906065700}
 --- !u!114 &974486607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569777c82bf5c5940a06561571c0fe09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  walkTime: 0
-  health: 1
-  damage: 1
+  speed: 0.5
+  walkTime: 150
+  health: 3
+  damage: 2
