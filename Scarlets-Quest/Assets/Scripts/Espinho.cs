@@ -23,7 +23,10 @@ public class Espinho : MonoBehaviour
     void FixedUpdate()
     {
         timer += Time.deltaTime;
-        
+        if (walkTime == -1)
+        {
+            return;
+        }
 
             if (timer >= walkTime)
             {

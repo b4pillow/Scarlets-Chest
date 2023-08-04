@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
 
     void BowFire()
     {
-        if (!_isShoot)
+        if (!_isShoot && GameController.instance.balasColeta > 0)
         {
             StartCoroutine("Shoot");
         }
@@ -97,6 +97,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            GameController.instance.UpdateScore(-1);
             sound.Play();
             _isShoot = true;
             _anim.SetInteger("transition", 3);
@@ -116,7 +117,7 @@ public class Player : MonoBehaviour
 
         if (coll.gameObject.layer == 8)
         {
-           GameController.instance.GameOver();
+            Damage(999);
         }
     }
 
