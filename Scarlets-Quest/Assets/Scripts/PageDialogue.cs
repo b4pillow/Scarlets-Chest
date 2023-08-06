@@ -14,6 +14,7 @@ public class PageDialogue : MonoBehaviour
     public Text dialogueText;
 
     public Text nameNpc;
+    public string namenpc2;
     public Image imageNpc;
     public Sprite spriteNpc;
 
@@ -58,7 +59,7 @@ public class PageDialogue : MonoBehaviour
     }
     void StartDialogue()
     {
-        nameNpc.text = "Página";
+        nameNpc.text = namenpc2;
         imageNpc.sprite = spriteNpc;
         startDialogue = true;
         dialogueIndex = 0;
