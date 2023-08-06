@@ -4974,8 +4974,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueNpc:
   - Ola!
-  - 
-  - 
+  - fsdf
+  - fdsfs
   dialogueIndex: 0
   dialoguePanel: {fileID: 0}
   dialogueText: {fileID: 0}
