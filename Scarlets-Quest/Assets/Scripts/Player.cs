@@ -119,6 +119,10 @@ public class Player : MonoBehaviour
         {
             Damage(999);
         }
+        if (coll.gameObject.layer == 9)
+        {
+            GameController.instance.MenuGame();
+        }
     }
 
     public void IncreaseLife(int value)

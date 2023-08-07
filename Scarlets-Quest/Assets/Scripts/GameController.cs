@@ -74,6 +74,10 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void MenuGame()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void PlayBulletSound()
     {
         bulletSound.Play();
